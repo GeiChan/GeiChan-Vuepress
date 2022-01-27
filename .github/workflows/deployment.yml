@@ -24,3 +24,13 @@ jobs:
         with:
           path: node_modules
           key: ${{runner.OS}}-${{hashFiles('**/package-lock.json')}}
+
+      - name: vuepress 部署
+        uses: jenkey2011/vuepress-deploy@master
+        env:
+          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          TARGET_REPO: GeiChan/GeiChan-Vuepress
+          TARGET_BRANCH: master
+          BUILD_SCRIPT: yarn && yarn build
+          BUILD_DIR: docs/.vuepress/geichan
+          # CNAME:
