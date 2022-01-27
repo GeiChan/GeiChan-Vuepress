@@ -34,4 +34,4 @@ jobs:
           BUILD_SCRIPT: yarn && yarn docs:build
           BUILD_DIR: docs/.vuepress/dist
           # Github Pages 站点别名
-          # CNAME:
+          # CNAME: geichan.io
