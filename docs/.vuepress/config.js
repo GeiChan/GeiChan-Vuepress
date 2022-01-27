@@ -12,6 +12,7 @@ module.exports = {
             }
         ]
     ],
+    dest: 'geichan',
     themeConfig: {
         base: '/GeiChan-Vuepress/',
         repo: 'GeiChan/GeiChan-Vuepress',
