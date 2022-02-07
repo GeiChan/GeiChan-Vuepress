@@ -58,7 +58,7 @@ module.exports = {
         searchPlaceholder: "瞧一瞧，看一看啦，绝对没有空的",  // 可选：搜索栏占位文本，默认："$ grep ..."
         searchIcon: "ri-search-2-line",  // 可选：搜索图标
         footer: `
-                  &copy; <a href="https://github.com/Renovamen" target="_blank">艾 略</a> 2022-2023
+                  &copy; 艾 略 2021-2022
                   <br>
                   Powered by <a href="https://vuepress.vuejs.org" target="_blank">VuePress</a> &
                   <a href="https://github.com/Renovamen/vuepress-theme-gungnir" target="_blank">Gungnir</a>
