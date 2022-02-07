@@ -31,7 +31,11 @@ module.exports = {
         homeHeaderImages: {
             local: [
                 {
-                    "path": "/img/home-bg/bg_1.jpeg",
+                    "path": "/img/home-bg/bg_4.png",
+                    "mask": "rgba(40, 57, 101, .4)"
+                },
+                {
+                    "path": "/img/home-bg/bg_3.png",
                     "mask": "rgba(40, 57, 101, .4)"
                 }
             ]
@@ -44,7 +48,7 @@ module.exports = {
 
                 // 可选：链接页封面图路径和蒙版
                 bgImage: {
-                    path: '/img/home-bg/bg_1.jpeg',
+                    path: '/img/home-bg/bg_3.png',
                     mask: 'rgba(64, 118, 190, 0.5)'
                 }
             }
@@ -81,7 +85,7 @@ module.exports = {
             //
             //     // 可选：链接页封面图路径和蒙版
             //     bgImage: {
-            //         path: '/img/home-bg/bg_1.jpeg',
+            //         path: '/img/home-bg/bg_3.png',
             //         mask: 'rgba(64, 118, 190, 0.5)'
             //     }
             // }
