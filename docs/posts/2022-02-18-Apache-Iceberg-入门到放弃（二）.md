@@ -1,7 +1,7 @@
 ---
 title: Apache Iceberg 入门到放弃（二）  # 博客标题（必须）
 subtitle: 随便写写，接受意见和更正，不接受吐槽  # 博客副标题（可选）
-date: 2022-02-18  # 博客日期，会显示在文章头部（可选）
+date: 2022-02-19  # 博客日期，会显示在文章头部（可选）
 header_style: text  # 是否在博客中显示封面图：`image`（显示） / `text`（不显示）（可选，默认为 `text`）
 header_img: /img/2021-05-01/cover.jpeg  # 博客封面图（必须，即使上一项选了 `text`，图片也需要在首页显示）
 header_mask: rgba(40, 57, 101, .4)  # 封面图遮罩（可选）
