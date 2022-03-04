@@ -1,9 +1,9 @@
 ---
-title: Apache Iceberg 入门到放弃（一）  # 博客标题（必须）
-subtitle: Apache Iceberg 简介以及特性 (随便写写，接受意见和更正，不接受吐槽) # 博客副标题（可选）
+title: Apache Iceberg 入门到放弃  # 博客标题（必须）
+subtitle: Apache Iceberg 简介以及特性 (随便记录一下，能看就行) # 博客副标题（可选）
 date: 2022-02-18  # 博客日期，会显示在文章头部（可选）
-header_style: text  # 是否在博客中显示封面图：`image`（显示） / `text`（不显示）（可选，默认为 `text`）
-header_img: /img/2021-05-01/cover.jpeg  # 博客封面图（必须，即使上一项选了 `text`，图片也需要在首页显示）
+header_style: image  # 是否在博客中显示封面图：`image`（显示） / `text`（不显示）（可选，默认为 `text`）
+header_img: https://gitee.com/GeiChan/picture/raw/master/img/cover_ic.jpeg  # 博客封面图（必须，即使上一项选了 `text`，图片也需要在首页显示）
 header_mask: rgba(40, 57, 101, .4)  # 封面图遮罩（可选）
 catalog: true  # 是否启用右侧目录：false / true（可选，默认为 false）
 tags:  # 博客标签
@@ -14,7 +14,7 @@ tags:  # 博客标签
 
 ## 简介
 
-Apache Iceberg 是一种用于大型分析数据集的开放式表格式。Iceberg 使用高性能的表格式将表添加到计算引擎中，包括 Spark、Trino、PrestoDB、Flink 以及 Hive，其工作形式类似于 SQL 表。
+Apache Iceberg 是一种用于海量数据分析的开放式表格式。Iceberg 使用高性能的表格式将表添加到计算引擎中，包括 Spark、Trino、PrestoDB、Flink 以及 Hive，其工作形式类似于 SQL 表。
 
 ::: info 官方介绍
 
@@ -28,7 +28,7 @@ Iceberg 使得**用户无需了解分区也可快速查询获得数据**，并�
 
 Iceberg 具有一下特点：
 
-- Schema evolution (~~格式演变？不知道怎么合理解释，就这么看吧。程序猿应该是可以接受部分英文的~~)：支持 add、drop、update 以及 rename，并且没有副作用
+- 格式演变：支持 add、drop、update 以及 rename，并且没有副作用
 - 隐藏分区：防止用户错误操作导致无提示的错误结果或者极慢的查询
 - 分区布局演变：可以根据数据量或查询模式的变化更新表的布局
 - Time travel：启用完全相同的表快照的可重现查询，或者使用户更容易地检查更改
