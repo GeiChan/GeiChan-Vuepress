@@ -74,3 +74,132 @@ Flink 自身已提供了 Hive 相关的依赖包，[自行前往下载](https://
 
 :::
 
+## CREATE CATALOG 以及 Catalog 使用
+
+> 本案例以 hadoop catalog 为使用例子
+
+```sql
+# 创建 hadoop catalog
+CREATE CATALOG hadoop_catalog WITH (
+	'type' = 'iceberg',
+    'catalog-type' = 'hadoop',
+    'warehouse' = 'hdfs://node2.hexinfo.com:8020/warehouse',
+    'property-version' = '1'
+);
+
+# 使用 hadoop catalog
+use catalog hadoop_catalog;
+```
+
+- `type` ：只能是 `iceberg`，必填项
+- `catalog-type` ：定义构建的 catalog 类型，`hive` 或者 `hadoop` 或者 `自定义catalog`，选填，默认 `hadoop`
+- `warehouse` ：HDFS 上存储元数据文件和数据文件的地址，必填项
+
+查看执行结果：
+
+```shell
+Flink SQL> CREATE CATALOG hadoop_catalog WITH ( 'type' = 'iceberg', 'catalog-type' = 'hadoop', 'warehouse' = 'hdfs://node2.hexinfo.com:8020/warehouse', 'property-version' = '1');
+[INFO] Execute statement succeed.
+
+Flink SQL> show catalogs;
++-----------------+
+|    catalog name |
++-----------------+
+| default_catalog |
+|  hadoop_catalog |
++-----------------+
+2 rows in set
+```
+
+## DDL 命令
+
+### CREATE DATABASE
+
+```sql
+＃　创建 DATABASE
+CREATE DATABASE `iceberg_db`;
+
+# USE DATABASE
+USE `iceberg_db`;
+```
+
+```shell
+Flink SQL> CREATE DATABASE `iceberg_db`;
+[INFO] Execute statement succeed.
+
+Flink SQL> show databases;
++---------------+
+| database name |
++---------------+
+|      autoflow |
+|       default |
+|    iceberg_db |
++---------------+
+3 rows in set
+```
+
+### CREATE TABLE
+
+```sql
+CREATE TABLE `iceberg_db`.`table_create_test` (
+    `id` BIGINT COMMENT '主键',
+    `name` STRING,
+    `age` BIGINT,
+    `date` STRING
+) PARTITIONED BY (`date`)
+COMMENT '建表测试';
+```
+
+- `COMMENT 'xxx'` ： 定义 column 或者 table 的描述
+- `PARTITIONED BY (column1, column2)` ：定义分区列，Flink 暂不支持隐藏分区
+
+### ALTER TABLE
+
+```sql
+ALTER TABLE `hadoop_catalog`.`iceberg_db`.`table_create_test` SET ('write.format.default' = 'orc');
+```
+
+::: danger
+
+目前，在 Flink 中，Iceberg 仅支持修改 table 配置
+
+:::
+
+### ALTER TABLE ... RENAME TO
+
+```sql
+# 修改表名
+ALTER TABLE `hadoop_catalog`.`iceberg_db`.`table_create_test` RENAME TO `hadoop_catalog`.`iceberg_db`.`update_table_name`;
+```
+
+### DROP TABLE
+
+```sql
+DROP TABLE `hadoop_catalog`.`iceberg_db`.`update_table_name`;
+```
+
+## QUERY
+
+```sql
+SELECT * FROM `hadoop_catalog`.`iceberg_db`.`table_create_test`;
+```
+
+## INSERT
+
+```sql
+# INSERT INTO
+INSERT INTO `hadoop_catalog`.`iceberg_db`.`table_create_test` VALUES (1, 'a', 18, '2022-03-01');
+INSERT INTO `hadoop_catalog`.`iceberg_db`.`table_create_test` SELECT `id`, `name`, `age`, `date` from other_kafka_table;
+
+# INSERT OVERWRITE
+INSERT OVERWRITE `hadoop_catalog`.`iceberg_db`.`table_create_test` VALUES (1, 'a', 18, '2022-03-01');
+INSERT OVERWRITE `hadoop_catalog`.`iceberg_db`.`table_create_test` SELECT `id`, `name`, `age`, `date` from other_kafka_table;
+```
+
+::: danger
+
+Flink 流式处理将数据追加到表中，请使用：`INSERT INTO`
+
+若需要使用 `INSERT OVERWRITE` ，请使用 Flink 批处理模式，即 `SET execution.type = batch `
+
+:::
