@@ -39,3 +39,92 @@ Iceberg 具有一下特点：
 - 序列化隔离：表更改事原子性的，读取操作永远无法看到部分更改或者未提交的更改
 - 多并发写入：多并发写入使用乐观并发，即使写入冲突，也会重试以确保兼容的更新成功
 
+
+
+## Flink 支持
+
+Apache Iceberg 同时支持 Flink 的 DataStream API 和 Table API。目前，Apache Iceberg 支持 Flink 的1.12、1.13、1.14。
+
+<table border="1">
+    <tr>
+        <th></th>
+        <th>功能支持</th>
+        <th>Flink</th>
+        <th>Note</th>
+    </tr>
+    <tr>
+        <td rowspan="9">SQL</td>
+        <td>CREATE CATALOG</td>
+        <td>✅</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>CREATE DATABASE</td>
+        <td>✅</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>CREATE TABLE</td>
+        <td>✅</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>CREATE TABLE LIKE</td>
+        <td>✅</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>ALTER TABLE</td>
+        <td>✅</td>
+        <td>仅支持修改  table properties，不支持 column 和 partition 的更改 </td>
+    </tr>
+    <tr>
+        <td>DROP TABLE</td>
+        <td>✅</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>SELECT</td>
+        <td>✅</td>
+        <td>支持流和批</td>
+    </tr>
+    <tr>
+        <td>INSERT INTO</td>
+        <td>✅</td>
+        <td>支持流和批</td>
+    </tr>
+    <tr>
+        <td>INSERT OVERWRITE</td>
+        <td>✅</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td rowspan="3">DataStream</td>
+        <td>Read</td>
+        <td>✅</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Append</td>
+        <td>✅</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>overwrite</td>
+        <td>✅</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Metadata</td>
+        <td>tables</td>
+        <td></td>
+        <td>仅支持 Java API，不支持 Flink SQL</td>
+    </tr>
+    <tr>
+        <td>Rewrite</td>
+        <td>files action</td>
+        <td>✅</td>
+        <td></td>
+    </tr>
+</table>
+
