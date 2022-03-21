@@ -31,6 +31,9 @@ Step1. 在有 hadoop 环境下，解压 Flink 包 `flink-1.13.5-bin-scala_2.12.t
 ```shell
 # 解压 flink 包
 tar -zxf flink-1.13.5-bin-scala_2.12.tgz
+
+# 添加 Iceberg 运行时依赖
+cp iceberg-flink-runtime-1.13-0.13.1.jar <flink_path>/lib/
 ```
 
 
