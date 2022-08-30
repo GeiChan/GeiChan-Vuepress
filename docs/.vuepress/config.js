@@ -6,6 +6,10 @@ module.exports = {
     head: [['link', { rel: 'icon', href: '/img/logo.png' }]],
     theme: "gungnir",
     themeConfig: {
+
+        // 左上角标题
+        // navbarTitle: "肚财",
+
         docsDir: 'docs',
 
         // 对所有博客文章页启用或禁用目录, 可选，默认：true
@@ -32,10 +36,37 @@ module.exports = {
 
 
         // 导航栏配置项
-        // searchText: "Search",
-        // searchMaxSuggestions: 10,  // 可选：搜索的最大结果数，默认：10
-        // searchPlaceholder: "瞧一瞧，看一看啦，绝对没有空的",  // 可选：搜索栏占位文本，默认："$ grep ..."
-        // searchIcon: "ri-search-2-line",  // 可选：搜索图标
+        navbar: [
+            {
+                text: "Home",
+                link: "/",
+                icon: "hi-solid-home"
+            },
+            {
+                text: "Links",
+                link: "/links/",
+                icon: "hi-solid-link"
+            }
+        ],
+
+        pages: {
+            links: {
+                // 可选：链接页副标题
+                subtitle: '一些好用的工具 / 影视连接',
+
+                // 可选：链接页封面图路径和蒙版
+                bgImage: {
+                    path: "/img/pages/links_bgc.png",
+                    mask: "rgba(64, 118, 190, 0.5)"
+                }
+            }
+        },
+
+        // 搜索设置
+        searchText: "Search",
+        searchIcon: "ri-search-2-line",  // 可选：搜索图标
+        searchMaxSuggestions: 10,  // 可选：搜索的最大结果数，默认：10
+        searchPlaceholder: "瞧一瞧，看一看啦，绝对没有空的",  // 可选：搜索栏占位文本，默认："$ grep ..."
 
 
         themePlugins: {
@@ -48,8 +79,7 @@ module.exports = {
             // markdown 增强
             mdPlus: {
                 all: true
-            },
-            search: false
+            }
         },
 
         // 页脚
