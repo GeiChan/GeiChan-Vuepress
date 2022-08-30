@@ -2,6 +2,14 @@
 layout: Links
 title: 链接库
 links:
+- title: 战友还是挚友
+  items:
+    - sitename: 浪里小白龙
+      url: https://kanlife.github.io/
+      img: /img/links/xiaobailong.png
+      desc: 他在说什么？
+
+
 - title: 影视链接
   items:
     - sitename: 555电影
@@ -32,4 +40,5 @@ links:
       url: https://wall.alphacoders.com/
       img: /img/links/wallpaper.png
       desc: Wallpaper Abyss 壁纸
+
 ---
