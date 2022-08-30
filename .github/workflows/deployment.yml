@@ -30,7 +30,7 @@ jobs:
         env:
           ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
           TARGET_REPO: GeiChan/GeiChan.github.io
-          TARGET_BRANCH: v2
+          TARGET_BRANCH: main
           BUILD_SCRIPT: yarn && yarn docs:build
           BUILD_DIR: docs/.vuepress/dist
           # Github Pages 站点别名
