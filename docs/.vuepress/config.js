@@ -14,7 +14,7 @@ module.exports = {
         // 作者信息
         personalInfo: {
             name: "肚 财", // 必须：名称，将在首页、移动端侧边栏和文章作者信息处显示
-            avatar: "/img/avatar.jpeg", // 必须：头像，将在首页和移动端侧边栏显示
+            avatar: "/img/avatar2.png", // 必须：头像，将在首页和移动端侧边栏显示
             description: '他没有留下适合作遗像的照片，只有一个人形。' // 必须：个人简介，将在首页显示
         },
 
