@@ -1,13 +1,11 @@
-const { gungnirTheme } = require("vuepress-theme-gungnir");
+// const { gungnirTheme } = require("vuepress-theme-gungnir")
 
 module.exports = {
     title: '肚财',
     description: "肚财，一个被社会抛弃的人.",
     head: [['link', { rel: 'icon', href: '/img/logo.png' }]],
-    theme: gungnirTheme({
-        // 左上角标题
-        navbarTitle: "肚财",
-
+    theme: "gungnir",
+    themeConfig: {
         docsDir: 'docs',
 
         // 对所有博客文章页启用或禁用目录, 可选，默认：true
@@ -16,7 +14,7 @@ module.exports = {
         // 作者信息
         personalInfo: {
             name: "肚 财", // 必须：名称，将在首页、移动端侧边栏和文章作者信息处显示
-            avatar: "/img/logo.png", // 必须：头像，将在首页和移动端侧边栏显示
+            avatar: "/img/avatar.jpeg", // 必须：头像，将在首页和移动端侧边栏显示
             description: '他没有留下适合作遗像的照片，只有一个人形。' // 必须：个人简介，将在首页显示
         },
 
@@ -33,25 +31,11 @@ module.exports = {
         blogNumPerPage: 10,
 
 
-        nav: [
-            {
-                text: 'Home',
-                link: '/',
-                icon: "fa-fort-awesome"
-            },
-            {
-                text: "About",
-                link: "/about/",
-                icon: "fa-paw"
-            }
-        ],
-
-
         // 导航栏配置项
-        searchText: "Search",
-        searchMaxSuggestions: 10,  // 可选：搜索的最大结果数，默认：10
-        searchPlaceholder: "瞧一瞧，看一看啦，绝对没有空的",  // 可选：搜索栏占位文本，默认："$ grep ..."
-        searchIcon: "ri-search-2-line",  // 可选：搜索图标
+        // searchText: "Search",
+        // searchMaxSuggestions: 10,  // 可选：搜索的最大结果数，默认：10
+        // searchPlaceholder: "瞧一瞧，看一看啦，绝对没有空的",  // 可选：搜索栏占位文本，默认："$ grep ..."
+        // searchIcon: "ri-search-2-line",  // 可选：搜索图标
 
 
         themePlugins: {
@@ -59,14 +43,14 @@ module.exports = {
                 // 卡片链接中关闭域名显示
                 link: {
                     siteDomain: false  // 可选，默认："true"
-                },
-                // markdown 增强
-                mdPlus: {
-                    all: true
                 }
-            }
+            },
+            // markdown 增强
+            mdPlus: {
+                all: true
+            },
+            search: false
         },
-
 
         // 页脚
         footer: `
@@ -75,5 +59,55 @@ module.exports = {
                   Powered by <a href="https://vuepress.vuejs.org" target="_blank">VuePress</a> &
                   <a href="https://github.com/Renovamen/vuepress-theme-gungnir" target="_blank">Gungnir</a>
                 `
-    })
+    },
+    // theme >= 2.0.0-alpha.23 的配置方式
+    // theme: gungnirTheme({
+    //     // 左上角标题
+    //     // navbarTitle: "肚财",
+    //
+    //
+    // }),
+    plugins: [
+        [
+            // 歌单插件
+            // https://github.com/vuepress-aurora/vuepress-theme-aurora/tree/master/Aurora-plugin/vuepress-plugin-player
+            'player', {
+                //是否禁用网易云音乐，如果你选择禁用，那么就将使用本地的歌曲，请传入链接
+                disabledNetEaseMusic: true,
+                //网易云单个歌单id
+                songIds: [],
+
+                //网易云歌单id 只有开启播放歌单才有效 showPlaylist: true
+                playlist: '',
+
+                // 是否开启播放的歌曲来源于网易云歌单
+                showPlaylist: false,
+
+                // 向网易云请求数据时的接口
+                serverUrl: 'http://localhost:8000',
+
+                //本地歌曲
+                localSongs: {
+                    // 所有的歌曲封面，如果你使用本地歌曲
+                    // 对于一些歌曲或者你需要配置的本地歌曲很多
+                    // 你不想单独的为每一首歌曲指定封面图
+                    // 那么你可以配置此项
+                    // 当那首歌没有配置封面的时候
+                    // 就会使用该项配置的图片url作为封面图
+                    coverUrl: '',
+                    // 本地歌曲集合
+                    songs: [
+                        {
+                            // 放在docs/.vuepress/public/bgm 目录里下的 mp3 文件
+                            path: '/bgm/面会菜_林生祥_.mp3',
+                            // 歌曲名称
+                            songName: '面会菜',
+                            // 单独为这首歌配置封面图
+                            cover: '/img/bgm/面会菜.png'
+                        }
+                    ]
+                }
+            }
+        ]
+    ]
 }

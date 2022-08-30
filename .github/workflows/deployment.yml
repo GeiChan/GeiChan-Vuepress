@@ -9,14 +9,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: 检查分支
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
-          ref: master
+          fetch-depth: 0
 
       - name: 安装 Node
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v3
         with:
-          node-version: "12.x"
+          node-version: "16.x"
 
       - name: 缓存依赖
         uses: actions/cache@v2.1.1
