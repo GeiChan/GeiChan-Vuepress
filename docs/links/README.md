@@ -2,7 +2,7 @@
 layout: Links
 title: 链接库
 links:
-- title: 战友还是挚友
+- title: 他好像一条狗啊
   items:
     - sitename: 浪里小白龙
       url: https://kanlife.github.io/
