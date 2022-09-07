@@ -1,10 +1,10 @@
 ---
 layout: Post  # 必须
 title: Streaming 101 - The world beyond batch  # 博客标题（必须）
-subtitle: 方便回顾，自己做个翻译记录  # 博客副标题（可选）
+subtitle: 现代数据处理概念的高级之旅（方便回顾，自己做了个翻译）  # 博客副标题（可选）
 date: 2022-08-31  # 博客日期，会显示在文章头部（可选）
 useHeaderImage: true  # 是否在博客中显示封面图：`image`（显示） / `text`（不显示）（可选，默认为 `text`）
-headerImage: /img/blog_cover/2021/05/cdh_install_blog_cover.png   # 博客封面图（必须，即使上一项选了 `text`，图片也需要在首页显示）
+headerImage: /img/blog_cover/2022/08/streaming-101-cover.png   # 博客封面图（必须，即使上一项选了 `text`，图片也需要在首页显示）
 headerMask: rgba(40, 57, 101, .4)  # 封面图遮罩（可选）
 catalog: true  # 是否启用右侧目录：false / true（可选，默认为 false）
 permalinkPattern: /post/:year/:month/:slug/
