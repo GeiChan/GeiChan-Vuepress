@@ -1,3 +1,18 @@
+---
+layout: Post  # 必须
+title: Flink SQL Client 操作 Hudi 初体验  # 博客标题（必须）
+subtitle: Flink SQL Client 操作 Hudi 初体验  # 博客副标题（可选）
+date: 2022-09-01  # 博客日期，会显示在文章头部（可选）
+useHeaderImage: true  # 是否在博客中显示封面图：`image`（显示） / `text`（不显示）（可选，默认为 `text`）
+headerImage: /img/blog_cover/2022/11/Hudi_On_Flink_First_cover.jpg   # 博客封面图（必须，即使上一项选了 `text`，图片也需要在首页显示）
+headerMask: rgba(40, 57, 101, .4)  # 封面图遮罩（可选）
+catalog: true  # 是否启用右侧目录：false / true（可选，默认为 false）
+permalinkPattern: /post/:year/:month/:slug/
+tags:  # 博客标签
+- 大数据
+- hudi
+---
+
 ## Flink SQL Client 操作 Hudi 初体验
 
 ### 环境版本
