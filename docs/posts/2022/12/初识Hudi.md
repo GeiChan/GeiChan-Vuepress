@@ -141,7 +141,7 @@ COW表中的文件切片仅包含列式文件(.parquet)，没有增量日志文�
 
 下面从概念上说明了当数据写入到COW表中并在其上运行两个查询时，这是如何工作的。
 
-![](/Users/ruby/Project/GeiChan-Vuepress/docs/posts/2022/12/img/hudi_cow_table.png)
+![](./img/hudi_cow_table.png)
 
 当数据被写入时，对现有文件组的更新会为该文件组生成一个新的切片，该切片标记有提交即时时间，而插入会分配一个新文件组并为该文件群写入其第一个切片。这些文件切片及其提交时间在上面用颜色编码。针对此类表运行的SQL查询(例如：`SELECT COUNT(*)` 计算该分区中的总记录)，首先检查最新提交的时间线，并过滤每个文件组中除最新文件片段之外的所有文件片段。正如您所看到的，一个旧的查询不会看到当前正在提交的文件(以粉色编码的)，而是在提交后开始的一个新的查询会拾取新的数据。因此，查询不受任何写入失败/部分写入的影响，仅在已提交的数据上运行。
 
@@ -178,7 +178,7 @@ Hudi 通过一种索引机制提供高效地 Upsert，这种机制具体是将�
 
 索引机制，可以做到：避免读取不需要的文件、避免更新不必要的文件、无需将更新数据与历史数据做分布式关联，只需要在文件组内做合并
 
-![更新基本文件的合并成本比较](/Users/ruby/Project/GeiChan-Vuepress/docs/posts/2022/12/img/with-and-without-index.png)
+![更新基本文件的合并成本比较](./img/with-and-without-index.png)
 
 ### 索引类型
 
@@ -212,7 +212,7 @@ Hudi 通过一种索引机制提供高效地 Upsert，这种机制具体是将�
 
 
 
-![](/Users/ruby/Project/GeiChan-Vuepress/docs/posts/2022/12/img/hudi_file_layout.png)
+![](./img/hudi_file_layout.png)
 
 上图描述了Hudi的通用文件布局结构。从上图可以看出，Hudi 将存储分为两部分：
 
