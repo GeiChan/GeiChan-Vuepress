@@ -1,7 +1,9 @@
-const { gungnirTheme } = require("vuepress-theme-gungnir");
-const { giscusPlugin } = require("vuepress-plugin-giscus");
+const { gungnirTheme } = require("vuepress-theme-gungnir")
+import { defineUserConfig } from 'vuepress'
+import { viteBundler } from "@vuepress/bundler-vite"
+// const { giscusPlugin } = require("vuepress-plugin-giscus")
 
-module.exports = {
+export default defineUserConfig({
     title: '肚财',
     description: "肚财，一个被社会抛弃的人.",
     head: [['link', { rel: 'icon', href: '/img/logo.png' }]],
@@ -84,6 +86,8 @@ module.exports = {
         // 每页文章容量
         blogNumPerPage: 10,
 
+        bundler: viteBundler(),
+
         // 搜索设置
         searchText: "检索",
 
@@ -118,48 +122,49 @@ module.exports = {
     }),
 
     plugins: [
-        giscusPlugin({
-            repo: "[repo]",
-            repoId: "[repo id]",
-            category: "[category name]",
-            categoryId: "[category id]"
-        }),
-        [
-            // 歌单插件
-            // https://github.com/vuepress-aurora/vuepress-theme-aurora/tree/master/Aurora-plugin/vuepress-plugin-player
-            'player', {
-                //是否禁用网易云音乐，如果你选择禁用，那么就将使用本地的歌曲，请传入链接
-                disabledNetEaseMusic: true,
-                //网易云单个歌单id
-                songIds: [],
-                //网易云歌单id 只有开启播放歌单才有效 showPlaylist: true
-                playlist: '',
-                // 是否开启播放的歌曲来源于网易云歌单
-                showPlaylist: false,
-                // 向网易云请求数据时的接口
-                serverUrl: 'http://localhost:8000',
-                //本地歌曲
-                localSongs: {
-                    // 所有的歌曲封面，如果你使用本地歌曲
-                    // 对于一些歌曲或者你需要配置的本地歌曲很多
-                    // 你不想单独的为每一首歌曲指定封面图
-                    // 那么你可以配置此项
-                    // 当那首歌没有配置封面的时候
-                    // 就会使用该项配置的图片url作为封面图
-                    coverUrl: '',
-                    // 本地歌曲集合
-                    songs: [
-                        {
-                            // 放在docs/.vuepress/public/bgm 目录里下的 mp3 文件
-                            path: '/bgm/面会菜_林生祥_.mp3',
-                            // 歌曲名称
-                            songName: '面会菜',
-                            // 单独为这首歌配置封面图
-                            cover: '/img/bgm/面会菜.png'
-                        }
-                    ]
-                }
-            }
-        ]
+        // dynamicTitlePlugin({
+        //     showIcon: '', // The icon displayed when the document is in the current tab.
+        //     showText: '(/≧▽≦/)咦！又好了！', // The title displayed when the document is in the current tab.
+        //     hideIcon: '', // The icon displayed when the document is not in the current tab.
+        //     hideText: '(●—●)喔哟, 崩溃啦！', // The title displayed when the document is not in the current tab.
+        //     recoverTime: 2000, // The time to recover the title after the tab is changed.
+        // }),
+        // [
+        //     // 歌单插件
+        //     // https://github.com/blog-aurora/vuepress-theme-aurora/tree/master/Aurora-plugin/vuepress-plugin-player
+        //     'player', {
+        //         //是否禁用网易云音乐，如果你选择禁用，那么就将使用本地的歌曲，请传入链接
+        //         disabledNetEaseMusic: true,
+        //         //网易云单个歌单id
+        //         songIds: [],
+        //         //网易云歌单id 只有开启播放歌单才有效 showPlaylist: true
+        //         playlist: '',
+        //         // 是否开启播放的歌曲来源于网易云歌单
+        //         showPlaylist: false,
+        //         // 向网易云请求数据时的接口
+        //         serverUrl: 'http://localhost:8000',
+        //         //本地歌曲
+        //         localSongs: {
+        //             // 所有的歌曲封面，如果你使用本地歌曲
+        //             // 对于一些歌曲或者你需要配置的本地歌曲很多
+        //             // 你不想单独的为每一首歌曲指定封面图
+        //             // 那么你可以配置此项
+        //             // 当那首歌没有配置封面的时候
+        //             // 就会使用该项配置的图片url作为封面图
+        //             coverUrl: '',
+        //             // 本地歌曲集合
+        //             songs: [
+        //                 {
+        //                     // 放在docs/.vuepress/public/bgm 目录里下的 mp3 文件
+        //                     path: '/bgm/面会菜_林生祥_.mp3',
+        //                     // 歌曲名称
+        //                     songName: '面会菜',
+        //                     // 单独为这首歌配置封面图
+        //                     cover: '/img/bgm/面会菜.png'
+        //                 }
+        //             ]
+        //         }
+        //     }
+        // ]
     ]
-}
+})
