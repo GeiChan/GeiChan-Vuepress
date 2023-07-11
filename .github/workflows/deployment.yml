@@ -29,9 +29,7 @@ jobs:
         uses: jenkey2011/vuepress-deploy@master
         env:
           ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-          TARGET_REPO: GeiChan/GeiChan.github.io
+          TARGET_REPO: GeiChan/gei.github.io
           TARGET_BRANCH: main
           BUILD_SCRIPT: yarn && yarn docs:build
           BUILD_DIR: docs/.vuepress/dist
-          # Github Pages 站点别名
-          # CNAME: geichan.io
