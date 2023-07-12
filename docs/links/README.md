@@ -20,6 +20,10 @@ links:
       url: https://www.dianyinggou.com/
       img: /img/links/电影狗.png
       desc: 电影搜索引擎
+    - sitename: LIBVIO
+      url: https://libvio.app/
+      img: /img/links/LIBVIO.jpg
+      desc: LIBVIO 影视
 
 
 - title: 工具

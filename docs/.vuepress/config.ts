@@ -66,8 +66,8 @@ export default defineUserConfig({
                 title: 'Time Travel',
                 subtitle: "Black Sheep Wall",
                 bgImage: {
-                    path: "/img/pages/tags.jpg",
-                    mask: "rgba(211, 136, 37, .5)"
+                    path: "/img/pages/tags_bgc.jpg",
+                    mask: "rgba(64, 118, 190, 0.2)"
                 }
             },
             links: {
