@@ -13,13 +13,11 @@ tags:  # 博客标签
 - streaming
 ---
 
-# Streaming 101: The World beyond batch
+## 来源
 
-> Author: Tyler Akidau
->
-> 原文链接：https://www.oreilly.com/radar/the-world-beyond-batch-streaming-101/
->
-> Editor's Note: 这是关于数据处理演变两个系列的第一部分，主要涉及 流式系统，无界数据集(unbounded data sets)，以及大数据的未来。
+::: link  [Streaming 101](https://www.oreilly.com/radar/the-world-beyond-batch-streaming-101/)
+关于数据处理演变两个系列的第一部分
+:::
 
 如今，流式数据处理(Streaming data processing)是大数据领域的一件大事，并且有充分的理由，包括：
 

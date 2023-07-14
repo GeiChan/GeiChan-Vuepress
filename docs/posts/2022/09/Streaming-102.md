@@ -13,11 +13,11 @@ tags:  # 博客标签
 - streaming
 ---
 
-> Author: Tyler Akidau
->
-> 原文连接: https://www.oreilly.com/radar/the-world-beyond-batch-streaming-102/
->
-> Editor's Note: 这是关于数据处理演变两个系列中的第二部分，着重关注流式系统、无界数据集、以及大数据的未来
+## 来源
+
+::: link  [Streaming 102](https://www.oreilly.com/radar/the-world-beyond-batch-streaming-102/)
+关于数据处理演变两个系列的第二部分
+:::
 
 ## 1. 介绍
 
