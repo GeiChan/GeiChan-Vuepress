@@ -39,8 +39,8 @@ export default defineUserConfig({
         // 首页
         homeHeaderImages: [
             {
-                "path": "/img/home-bg/background2.png",
-                "mask": "rgba(40, 57, 101, .4)"
+                "path": "/img/home-bg/background.jpg",
+                "mask": "rgba(40, 57, 101, .3)"
             }
         ],
 
