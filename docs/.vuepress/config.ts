@@ -66,7 +66,7 @@ export default defineUserConfig({
         pages: {
             tags: {
                 title: 'Time Travel',
-                subtitle: "Black Sheep Wall",
+                subtitle: "“希望和悲伤，都是一缕光。",
                 bgImage: {
                     path: "/img/pages/tags_bgc.jpg",
                     mask: "rgba(64, 118, 190, 0.2)"
