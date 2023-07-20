@@ -12,7 +12,7 @@ export default defineUserConfig({
     theme: gungnirTheme({
         // 左上角标题
         navbarTitle: "艾 略",
-        repo: "GeiChan/gei.github.io",
+        repo: "GeiChan/geichan.github.io",
         docsBranch: "main",
         docsDir: 'docs',
         // 一言

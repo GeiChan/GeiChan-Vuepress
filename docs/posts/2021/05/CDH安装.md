@@ -27,8 +27,10 @@ tags:  # 博客标签
 
 #### 1.1 配置集群中的每一台服务器的主机名(HOSTNAME)
 
-::: tip
+::: tip Tips
+
 主机名必须是FQDN(全限定域名)，且必须唯一
+
 :::
 
 主机名设置命令：`hostnamectl set-hostname 主机名`
@@ -49,8 +51,10 @@ hostnamectl set-hostname node2.hexinfo.com
 
 编辑 `/etc/hosts` 文件（命令：`vim /etc/hosts`）
 
-::: tip
+::: tip Tips
+
 配置时，也可以添加非限定域名，即别名
+
 :::
 
 ```shell
@@ -157,10 +161,12 @@ rpm -ivh cloudera-manager-agent-6.3.1-1466458.el7.x86_64.rpm
 rpm -ivh cloudera-manager-server-6.3.1-1466458.el7.x86_64.rpm
 ```
 
-::: tip
+::: tip Tips
+
 Server 只有 Master 节点需要安装， Agent 所有节点都需要装
 
 若以上命令存在`依赖检查失败`的问题，加上 `--nodeps --force`
+
 :::
 
 ### 3、修改所有节点Agent配置
@@ -169,8 +175,10 @@ Server 只有 Master 节点需要安装， Agent 所有节点都需要装
 
 ![](./img/agent配置.png)
 
-::: warning
+::: warning 注意
+
 如果开启了ipv6，这个地方就不能写服务器的hostname了，要使用服务器的 IP 地址，否则CM将无法运行服务监测，会提示 `Host Monitor 未运行`
+
 :::
 
 ### 4、为CM使用，安装MySQL连接驱动
@@ -266,11 +274,13 @@ GRANT ALL ON oozie.* TO 'oozie'@'%' IDENTIFIED BY 'oozie';
 ```
 
 ::: warning
+
 使用以上语句时，可能存在`Your password does not satisfy the current policy requirements` 错误，是由于数据库用户的密码过于简单导致的
 
 如果是开发或者测试环境，建议 在 `/etc/my.cnf` 中添加一段 `validate_password=off` ，关闭密码策略 
 
 当然你也可以设置更为复杂的密码
+
 :::
 
 ### 6、设置Cloudera Manager数据库
@@ -281,10 +291,12 @@ GRANT ALL ON oozie.* TO 'oozie'@'%' IDENTIFIED BY 'oozie';
 # 若数据库所在的服务器与Cloudera Manager Server所在服务不是同一台的话，使用一下命令
 /opt/cloudera/cm/schema/scm_prepare_database.sh -h <host> -P <port> mysql scm scm scm
 ```
-::: tip
+::: tip Tips
+
 `scm_prepare_database.sh` 脚本语法：
 
 `/opt/cloudera/cm/schema/scm_prepare_database.sh [options] <databaseType> <databaseName> <databaseUser> <password>`
+
 :::
 
 ![](./img/设置ClouderaManagerServer数据库.png)
@@ -325,12 +337,15 @@ systemctl start cloudera-scm-agent.service
 
 输入群集名称，然后单击 *继续*
 
-::: tip
+::: tip Tips
+
 Cluster Basics：允许用户指定**集群名称**，并选择**集群类型**
+
 - 常规集群：查柜集群包含存储节点、计算节点和其他服务，如单个集群中并存的元数据和安全
 - 计算集群：计算集群**仅由计算节点组成**，若要连接到现有存储、元数据或安全服务，必须先在基础集群上选择或创建数据上下文
 
 Tips：新安装时，只能选择**常规集群**。如果没有常规集群，则无法添加计算集群
+
 :::
 
 ##### 9.1.2 Specify Hosts
@@ -339,10 +354,12 @@ Tips：新安装时，只能选择**常规集群**。如果没有常规集群，
 
 ![](./img/集群安装_选择主机.png)
 
-::: tip
+::: tip Tips
+
 若没有`当前管理主机` 这栏，可能未启动Cloudera Manager Agent。
 
 可以使用`systemctl status cloudera-scm-agent.service` 查看一下启动状态，未启动的话，使用`systemctl start cloudera-scm-agent.service`启动，然后刷新页面即可
+
 :::
 
 ##### 9.1.3 选择存储库
@@ -360,10 +377,12 @@ Tips：新安装时，只能选择**常规集群**。如果没有常规集群，
 
   Parcel 是包含程序文件的二进制分发格式，以及Cloudera Manager使用的其他元数据。
 
-::: warning
+::: warning 注意
+
 注意：如果使用 Parcel 安装，需要在`其他Parcel` 选择需要安装的 Parcel。
 
 特别提醒：如果安装CDH 6，请勿选择KAFKA、KUDU、SPARK的Parcel，因为CDH 6中已经包含了这些 Parcel
+
 :::
 
 ##### 9.1.4 Install Parcel

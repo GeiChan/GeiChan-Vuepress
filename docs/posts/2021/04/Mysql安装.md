@@ -12,8 +12,10 @@ tags:  # 博客标签
   - Mysql
 ---
 
-::: tip
+::: tip Tips
+
 本文安装的Mysql 5.7，当然，如果需要更高版本的，可以按照 `Step.4` 修改文件中的`enable`的值（1：启用，0：关闭）即可。
+
 :::
 
 ## Step.1 检查并卸载系统原装MySQL
@@ -135,8 +137,10 @@ GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'Shhex!1324' WITH GRANT 
 FLUSH PRIVILEGES;
 ```
 
-::: tip
+::: tip Tips
+
 如果是开发或者测试环境，建议 在 `/etc/my.cnf` 中添加一段 `validate_password=off` ，关闭密码策略。（修改配置文件后，需要重启mysql服务，命令行`systemctl restart mysqld`）
+
 :::
 
 
