@@ -8,7 +8,14 @@ import { viteBundler } from "@vuepress/bundler-vite"
 export default defineUserConfig({
     title: '艾 略',
     description: "一个被社会抛弃的人.",
-    head: [['link', { rel: 'icon', href: '/img/logo.png' }]],
+    head: [
+        // 引入 logo 图片
+        ['link', { rel: 'icon', href: '/img/logo.png' }],
+        // 以下三个为引入思源字体
+        ["link", { rel: "preconnect", href: "https://fonts.googleapis.com" }],
+        ["link", { rel: "preconnect", href: "https://fonts.gstatic.com", crossorigin: ""}],
+        ['link', { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300&display=swap' }]
+    ],
     theme: gungnirTheme({
         // 左上角标题
         navbarTitle: "艾 略",
