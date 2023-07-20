@@ -2,7 +2,10 @@ name: Build and Deploy
 
 on:
   push:
-    branches: [ v2 ]
+    # GeiChan Repo
+#    branches: [ v2 ]
+    # AilveGei Repo
+    branches: [ master ]
 
 jobs:
   build-and-deploy:
@@ -25,6 +28,7 @@ jobs:
           path: node_modules
           key: ${{runner.OS}}-${{hashFiles('**/package-lock.json')}}
 
+      # GeiChan Repo
 #      - name: vuepress 部署
 #        uses: jenkey2011/vuepress-deploy@master
 #        env:
@@ -34,6 +38,7 @@ jobs:
 #          BUILD_SCRIPT: yarn && yarn docs:build
 #          BUILD_DIR: docs/.vuepress/dist
 
+      # AilveGei Repo
       - name: vuepress 部署
         uses: jenkey2011/vuepress-deploy@master
         env:
