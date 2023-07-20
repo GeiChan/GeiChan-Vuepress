@@ -25,11 +25,20 @@ jobs:
           path: node_modules
           key: ${{runner.OS}}-${{hashFiles('**/package-lock.json')}}
 
+#      - name: vuepress 部署
+#        uses: jenkey2011/vuepress-deploy@master
+#        env:
+#          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+#          TARGET_REPO: GeiChan/geichan.github.io
+#          TARGET_BRANCH: main
+#          BUILD_SCRIPT: yarn && yarn docs:build
+#          BUILD_DIR: docs/.vuepress/dist
+
       - name: vuepress 部署
         uses: jenkey2011/vuepress-deploy@master
         env:
           ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-          TARGET_REPO: GeiChan/geichan.github.io
+          TARGET_REPO: AilveGei/ailvegei.github.io
           TARGET_BRANCH: main
           BUILD_SCRIPT: yarn && yarn docs:build
           BUILD_DIR: docs/.vuepress/dist
