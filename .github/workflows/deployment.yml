@@ -3,9 +3,9 @@ name: Build and Deploy
 on:
   push:
     # GeiChan Repo
-#    branches: [ v2 ]
+    branches: [ v2 ]
     # AilveGei Repo
-    branches: [ master ]
+#    branches: [ master ]
 
 jobs:
   build-and-deploy:
@@ -29,21 +29,21 @@ jobs:
           key: ${{runner.OS}}-${{hashFiles('**/package-lock.json')}}
 
       # GeiChan Repo
-#      - name: vuepress 部署
-#        uses: jenkey2011/vuepress-deploy@master
-#        env:
-#          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-#          TARGET_REPO: GeiChan/geichan.github.io
-#          TARGET_BRANCH: main
-#          BUILD_SCRIPT: yarn && yarn docs:build
-#          BUILD_DIR: docs/.vuepress/dist
-
-      # AilveGei Repo
       - name: vuepress 部署
         uses: jenkey2011/vuepress-deploy@master
         env:
           ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-          TARGET_REPO: AilveGei/ailvegei.github.io
+          TARGET_REPO: GeiChan/geichan.github.io
           TARGET_BRANCH: main
           BUILD_SCRIPT: yarn && yarn docs:build
           BUILD_DIR: docs/.vuepress/dist
+
+      # AilveGei Repo
+#      - name: vuepress 部署
+#        uses: jenkey2011/vuepress-deploy@master
+#        env:
+#          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+#          TARGET_REPO: AilveGei/ailvegei.github.io
+#          TARGET_BRANCH: main
+#          BUILD_SCRIPT: yarn && yarn docs:build
+#          BUILD_DIR: docs/.vuepress/dist
