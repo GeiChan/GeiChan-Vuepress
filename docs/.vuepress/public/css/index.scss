@@ -1,9 +1,9 @@
 body {
-  font-family: 'Fira Code', monospace, 'Noto Sans SC', sans-serif, var(--font-family);
+  font-family: 'Fira Code', monospace, 'Noto Sans SC', sans-serif, var(--font-family) !important;
 }
 
 code {
-  font-family: 'Fira Code', monospace, 'Noto Sans SC', sans-serif, var(--font-family-code);
+  font-family: 'Fira Code', monospace, 'Noto Sans SC', sans-serif, var(--font-family-code) !important;
 }
 
 code[class*="language-"],

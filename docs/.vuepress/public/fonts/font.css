@@ -1,9 +1,9 @@
 @font-face {
   font-family: 'Fira Code';
-  src: url('FiraCode-Regular.ttf') format("truetype");
+  src: url('FiraCode-Regular.ttf') format("ttf");
 }
 
 @font-face {
   font-family: 'Noto Sans SC';
-  src: url('NotoSerifSC-Regular.otf') format("truetype");
+  src: url('NotoSerifSC-Regular.otf') format("otf");
 }
