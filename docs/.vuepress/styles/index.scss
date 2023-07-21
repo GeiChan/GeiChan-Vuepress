@@ -1,6 +1,9 @@
-
 body {
   font-family: 'Fira Code', monospace, 'Noto Sans SC', sans-serif, var(--font-family);
+}
+
+code {
+  font-family: 'Fira Code', monospace, 'Noto Sans SC', sans-serif, var(--font-family-code);
 }
 
 code[class*="language-"],
@@ -12,8 +15,4 @@ pre[class*="language-"] {
   .line-number {
     font-family: 'Fira Code', monospace, var(--font-family-code);
   }
-}
-
-code {
-  font-family: 'Fira Code', monospace, 'Noto Sans SC', sans-serif, var(--font-family-code);
 }
