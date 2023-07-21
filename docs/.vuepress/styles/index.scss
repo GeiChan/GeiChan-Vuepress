@@ -1,3 +1,18 @@
 body {
-  font-family: 'Noto Sans SC', sans-serif, var(--font-family);
+  font-family: 'Fira Code', monospace, 'Noto Sans SC', sans-serif, var(--font-family);
+}
+
+code[class*="language-"],
+pre[class*="language-"] {
+  font-family: 'Fira Code', monospace, var(--font-family-code);
+}
+
+.theme-gungnir-content {
+  .line-number {
+    font-family: 'Fira Code', monospace, var(--font-family-code);
+  }
+}
+
+code {
+  font-family: 'Fira Code', monospace, var(--font-family-code), 'Noto Sans SC', sans-serif;
 }

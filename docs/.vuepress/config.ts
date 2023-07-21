@@ -11,10 +11,10 @@ export default defineUserConfig({
     head: [
         // 引入 logo 图片
         ['link', { rel: 'icon', href: '/img/logo.png' }],
-        // 以下三个为引入思源字体
-        ["link", { rel: "preconnect", href: "https://fonts.googleapis.com" }],
-        ["link", { rel: "preconnect", href: "https://fonts.gstatic.com", crossorigin: ""}],
-        ['link', { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300&display=swap' }]
+        // 引入 思源 字体
+        ['link', { rel: 'stylesheet', href: '/fonts/NotoSerifSC-Regular.otf' }],
+        // 引入 Fira Code 字体
+        ['link', { rel: 'stylesheet', href: '/fonts/FiraCode-Regular.ttf' }]
     ],
     theme: gungnirTheme({
         // 左上角标题
