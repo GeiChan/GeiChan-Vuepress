@@ -1,6 +1,11 @@
+@font-face {
+  font-family: "Huakang";
+  src: url("https://github.com/AilveGei/ailvegei.github.io/tree/main/fonts/huakang.ttf") format("truetype");
+}
+
 :root {
 
-  --font-family: 'Fira Code', 'Fira Sans', 'Noto Sans SC', serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+  --font-family: 'Huakang', 'Fira Code', 'Fira Sans', 'Noto Sans SC', serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
   Ubuntu, Cantarell, 'Droid Sans', 'Helvetica Neue', sans-serif;
 
   --font-family-code: 'Fira Code', 'Fira Sans', Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;

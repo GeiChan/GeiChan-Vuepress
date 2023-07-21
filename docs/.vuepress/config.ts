@@ -13,7 +13,7 @@ export default defineUserConfig({
         ['link', { rel: 'icon', href: '/img/logo.png' }],
         ['link', { rel: 'preconnect', href: 'https://fonts.googleapis.com'}],
         ['link', { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: ''}],
-        ['link', { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Fira+Code&family=Noto+Sans+TC:wght@300&family=Noto+Serif+SC:wght@300&display=swap'}],
+        ['link', { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Fira+Code&family=Noto+Serif+SC:wght@300&display=swap'}],
         // // 引入 思源 字体
         // ['link', { rel: 'stylesheet', href: '/fonts/NotoSerifSC-Regular.otf' }],
         // // 引入 Fira Code 字体
