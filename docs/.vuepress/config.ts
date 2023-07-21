@@ -12,7 +12,7 @@ export default defineUserConfig({
         // 引入 logo 图片
         ['link', { rel: 'icon', href: '/img/logo.png' }],
         // 引入 思源 字体
-        ['link', { rel: 'stylesheet', href: './fonts/font.scss', type: 'text/css' }],
+        ['link', { rel: 'stylesheet', href: '/fonts/font.scss', type: 'text/css' }],
         // 引入 Fira Code 字体
         // ['link', { rel: 'stylesheet', href: '/fonts/FiraCode-Regular.ttf' }]
     ],
