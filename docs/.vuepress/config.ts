@@ -13,7 +13,6 @@ export default defineUserConfig({
         ['link', { rel: 'icon', href: '/img/logo.png' }],
         // 引入 思源 字体
         ['link', { rel: 'stylesheet', href: '/fonts/font.css', type: 'text/css' }],
-        ['link', { rel: 'stylesheet', href: '/css/index.scss' }],
         // 引入 Fira Code 字体
         // ['link', { rel: 'stylesheet', href: '/fonts/FiraCode-Regular.ttf' }]
     ],
