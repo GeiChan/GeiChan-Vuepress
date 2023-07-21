@@ -12,6 +12,11 @@ pre[class*="language-"] {
 }
 
 .theme-gungnir-content {
+
+  p {
+    font-family: 'Fira Code', monospace, 'Noto Sans SC', sans-serif, var(--font-family) !important;
+  }
+
   .line-number {
     font-family: 'Fira Code', monospace, var(--font-family-code);
   }
