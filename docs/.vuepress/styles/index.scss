@@ -1,23 +1,8 @@
-body {
-  font-family: 'Fira Code', monospace, 'Noto Sans SC', sans-serif, var(--font-family) !important;
-}
+:root {
 
-code {
-  font-family: 'Fira Code', monospace, 'Noto Sans SC', sans-serif, var(--font-family-code) !important;
-}
+  --font-family: 'Fira Code', 'Fira Sans', 'Noto Sans SC', serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+  Ubuntu, Cantarell, 'Droid Sans', 'Helvetica Neue', sans-serif;
 
-code[class*="language-"],
-pre[class*="language-"] {
-  font-family: 'Fira Code', monospace, var(--font-family-code);
-}
+  --font-family-code: 'Fira Code', 'Fira Sans', Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
 
-.theme-gungnir-content {
-
-  p {
-    font-family: 'Fira Code', monospace, 'Noto Sans SC', sans-serif, var(--font-family) !important;
-  }
-
-  .line-number {
-    font-family: 'Fira Code', monospace, var(--font-family-code);
-  }
 }
