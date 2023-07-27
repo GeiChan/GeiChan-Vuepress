@@ -10,7 +10,7 @@ export default defineUserConfig({
     description: "一个被社会抛弃的人.",
     head: [
         // 引入 logo 图片
-        ['link', { rel: 'icon', href: '/img/logo.png' }],
+        ['link', { rel: 'icon', href: '/img/logo.jpg' }],
         ['link', { rel: 'preconnect', href: 'https://fonts.googleapis.com'}],
         ['link', { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: ''}],
         ['link', { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Fira+Code&family=Noto+Serif+SC:wght@300&display=swap'}],
