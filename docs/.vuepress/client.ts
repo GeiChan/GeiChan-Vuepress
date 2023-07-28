@@ -16,7 +16,9 @@ import {
     FaPaw,
     AiCv,
     AiGoogleScholarSquare,
-    FaCheckSquare
+    FaCheckSquare,
+    PrTimesCircle,
+    PrCheckCircle
 } from 'oh-vue-icons/icons'
 
 addIcons(
@@ -34,7 +36,9 @@ addIcons(
     FaPaw,
     AiCv,
     AiGoogleScholarSquare,
-    FaCheckSquare
+    FaCheckSquare,
+    PrTimesCircle,
+    PrCheckCircle
 )
 
 export default defineClientConfig( {})
