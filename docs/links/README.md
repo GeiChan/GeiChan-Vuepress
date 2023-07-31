@@ -9,6 +9,13 @@ links:
       img: /img/links/xiaobailong.png
       desc: 他在说什么？
 
+- title: 听说你也喜欢玩游戏
+  items:
+    - sitename: 资源避难所
+      url: https://www.flysheep6.com/
+      img: /img/links/flysheep.png
+      desc: steam、epic、单机资源、switch游戏的下载站
+
 
 - title: 影视链接
   items:
