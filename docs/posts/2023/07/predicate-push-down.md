@@ -63,9 +63,10 @@ public class JdbcDynamicTableSource
         SupportsProjectionPushDown,
         SupportsLimitPushDown {
           
+          
           // 省略其他原先代码
           
-         /**
+          /**
            * 1. 该方法的作用是将filters(过滤条件)应用到当前的DynamicTableSource上
            * 2. 该方法的返回值是一个Result对象，该对象包含两个List<ResolvedExpression>类型的属性，
            *    分别是acceptedFilters(接受的过滤条件)和remainingFilters(剩余的过滤条件)
@@ -82,37 +83,39 @@ public class JdbcDynamicTableSource
               this.filters = filters;
               return Result.of(this.filters, Lists.newArrayList());
           }
-
+          
           public boolean equals(Object o) {
-              if (this == o) {
-                  return true;
-              } else if (!(o instanceof JdbcDynamicTableSource)) {
-                  return false;
-              } else {
-                  JdbcDynamicTableSource that = (JdbcDynamicTableSource)o;
-                  return Objects.equals(this.options, that.options)
-                          && Objects.equals(this.readOptions, that.readOptions)
-                          && Objects.equals(this.lookupOptions, that.lookupOptions)
-                          && Objects.equals(this.physicalRowDataType, that.physicalRowDataType)
-                          && Objects.equals(this.dialectName, that.dialectName)
-                          && Objects.equals(this.limit, that.limit)
-                    			// Jdbc Connector 重写了 equals 方法，需要加上新增的 filters 属性
-                          && Objects.equals(this.filters, that.filters);
+            
+            if (this == o) {
+              return true;
+            } else if (!(o instanceof JdbcDynamicTableSource)) {
+              return false;
+            } else {
+              JdbcDynamicTableSource that = (JdbcDynamicTableSource)o;
+              return Objects.equals(this.options, that.options)
+                && Objects.equals(this.readOptions, that.readOptions)
+                && Objects.equals(this.lookupOptions, that.lookupOptions)
+                && Objects.equals(this.physicalRowDataType, that.physicalRowDataType)
+                && Objects.equals(this.dialectName, that.dialectName)
+                && Objects.equals(this.limit, that.limit)
+                // Jdbc Connector 重写了 equals 方法，需要加上新增的 filters 属性
+                && Objects.equals(this.filters, that.filters);
               }
-        }
-
-        public int hashCode() {
+          }
+          
+          public int hashCode() {
             return Objects.hash(
-                    new Object[]{this.options,
-                                this.readOptions,
-                                this.lookupOptions,
-                                this.physicalRowDataType,
-                                this.dialectName,
-                                this.limit,
-                                // Jdbc Connector 重写了 hashCode 方法，需要加上新增的 filters 属性
-                                this.filters
-                    });
-        }
+              new Object[]{
+                this.options,
+                this.readOptions,
+                this.lookupOptions,
+                this.physicalRowDataType,
+                this.dialectName,
+                this.limit,
+                // Jdbc Connector 重写了 hashCode 方法，需要加上新增的 filters 属性
+                this.filters
+              });
+          }
 }
 ```
 
