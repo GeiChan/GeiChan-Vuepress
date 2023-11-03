@@ -38,14 +38,13 @@ Flink SQL 中实现完整谓词下推的仅 `FileSystemTableSource`。
 
 1. [SupportsFilterPushDown](#supportsfilterpushdown)
 2. [SupportsLimitPushDown](#supportslimitpushdown)
-3. [SupportsPartitionPushDown](#supportspartitionpushdown)
 4. [SupportsProjectionPushDown](#supportsprojectionpushdown)
 
 ### SupportsFilterPushDown
 
 <p style="color: #fa5d19">应用场景：将 where 中的过滤条件下推到 Source 中进行处理，这样不需要的数据就可以不往下游发送了，性能会有提升</p>
 
-<v-icon name='pr-times-circle' fill='#E84B3C' /> 以 JDBC Connector 为例，以下是默认未实现`SupportsFilterPushDown`时的执行计划，可以很明显的看到，有一个专门的算子用于处理过滤条件
+<v-icon name='pr-times-circle' fill='#E84B3C' /> 以 JDBC Connector 为例，以下是默认未实现`SupportsFilterPushDown`时的执行计划，可以很明显的看到，有一个专门的算子链节点用于处理过滤条件
 
 ![](./img/unpush-down-filter.png)
 
@@ -119,19 +118,49 @@ public class JdbcDynamicTableSource
 }
 ```
 
+::: tip 其他重写方案
 
+上述实现 `SupportsFilterPushDown` 接口，仅将过滤条件应用于 DynamicTableSource，对于 Jdbc Connector 而言，也可以将过滤条件同时应用于运行时 ，这样的话，就可以在 `getScanRuntimeProvider` 方法中，拿到过滤条件，将其拼接到`query`语句中，从而实现在数据库读取时就过滤到不需要的数据
+
+:::
 
 ### SupportsLimitPushDown
 
-<p style="color: #fa5d19">应用场景：将 limit 子句下推到 Source 中，在批场景中可以过滤大部分不需要的数据</p>
+<p style="color: #fa5d19">应用场景：将 limit 子句下推到 Source 中，在批场景中可以限制数据的流动量</p>
+
+<v-icon name='pr-times-circle' fill='#E84B3C' /> 还是以 JDBC Connector 为例，以下是默认未实现`SupportsLimitPushDown`时的执行计划，可以看到，只有一个专门的算子链节点用于处理 Limit 限制，此时，从`TableSourceScan`节点到`Limit`节点，数据的流动量会很大，而且 Scan 的效率就会影响到整体的执行效率
+
+![](./img/unpush-down-limit.png)
+
+<v-icon name='pr-check-circle' fill='#31C46E' /> 以下实现了 `SupportsLimitPushDown` 接口后的执行计划，可以看到 Flink 将 Limit 条件下推到了 Source 端，在查询时就限制了数据条数，从而整个算子链中的流动的数据量减少，可以在一些批处理场景大大提高效率，以及减少 source 端的查询压力
+
+![](./img/push-down-limit.png)
+
+::: tip 实现方式
+
+Limit 下推的实现方式，主要就是在`DynamicTableSource` 类中定义 `limit` 属性，然后实现 `SupportsLimitPushDown` 接口，将传入的 Limit 值赋给定义的  `limit` 属性，之后就可以在运行时使用 `limit` 属性限制数据条数，具体可以参考 `JdbcDynamicTableSource`、`HiveTableSource`、`FileSystemTableSource`
+
+:::
+
+### SupportsProjectionPushDown
+
+<p style="color: #fa5d19">应用场景：将下游用到的字段下推到 Source 中，然后 Source 中可以做到只取这些字段，不使用的字段就不往下游发</p>
+
+<v-icon name='pr-times-circle' fill='#E84B3C' /> 从下图可以看出，在未实现`SupportsProjectionPushDown`时，下游只需要所有字段中的一部分，source 端依旧会获取到所有字段内容，并且需要一个单独的 select 算子链来筛选下游需要的列
+
+![](./img/unpush-down-projection.png)
+
+<v-icon name='pr-check-circle' fill='#31C46E' /> 以下时实现了 `SupportsProjectionPushDown` 接口后的执行计划，可以看到 Flink 查询列下推到了 Source 端，在查询时就限制了查询列，并减少了算子链长度
+
+![](./img/push-down-projection.png)
+
+## 其他优化拓展 Source 能力的接口
 
 ### SupportsPartitionPushDown
 
 <p style="color: #fa5d19">应用场景：常用于批处理场景，带有 Partition 属性的 Source，将所有的 Partition 数据获取到之后，然后在 Source 层面决定哪个 Source 算子读取哪些 Partition 的数据，而不必在 Source 后过滤。比如 Hive 表的 Partition，将所有 Partition 获取到之后，然后决定某个 Source 算子应该读取哪些 Partition</p>
 
-### SupportsProjectionPushDown
-
-<p style="color: #fa5d19">应用场景：将下游用到的字段下推到 Source 中，然后 Source 中可以做到只取这些字段，不使用的字段就不往下游发</p>
+### 
 
 
 
